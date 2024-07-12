@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>you and me</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesss.css">
+  <script src="script.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <video autoplay muted loop id="myVideo">
+    <source src="vidio.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <button class="carry-on-button" onclick="toggleLogin()">Carry On</button>
+  <div class="login-container">
+    <h2>Towards Heaven</h2>
+    <h1>Masuk Email</h1>
+    <form onsubmit="return login()">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p id="message"></p>
+    <h3>Tetap selalu bersama</h3>
+    <h3>You For</h3>
+  </div>
+</body>
+
+<!-- Your content goes here -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+      document.querySelector('.carry-on-button').classList.add('show-button');
+    }, 10000); // 5000 milliseconds = 5 detik
+  });
+</script>
+<script>
+  function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const validEmail = 'bersamamu12345@gmail.com';
+    const validPassword = 'Novadandimas01';
+
+    if (email === validEmail && password === validPassword) {
+      document.getElementById('message').innerText = 'berhasil sayang!';
+      document.getElementById('message').style.color = 'green'; // Warna teks saat login berhasil
+      window.location.replace('putrisyurga.html');
+    } else {
+      document.getElementById('message').innerText = 'salah sayang';
+      document.getElementById('message').style.color = 'red'; // Warna teks saat login gagal
+    }
+
+    return false; // Prevent form submission
+  }
+</script>
+<script>
+  function toggleLogin() {
+    var loginContainer = document.querySelector('.login-container');
+    loginContainer.classList.toggle('hidden');
+  }
+</script>
+
+
+
+
+</body>
+
+</html>
